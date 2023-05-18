@@ -1,3 +1,12 @@
-.h1{
+.task-container{
+    display: flex;
+    
+}
+.task{
+    margin: 10px;
     text-align: center;
+    padding: 10px;
+    width: 200px;
+    height: 100px;
+    background-color: grey;
 }

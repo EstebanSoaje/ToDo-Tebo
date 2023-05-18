@@ -2,7 +2,12 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-analytics.js";
-import { getFirestore, collection, addDoc, } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js"
+import { getFirestore,
+    collection,
+    addDoc,
+    getDocs,
+    onSnapshot
+} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js"
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -30,3 +35,14 @@ export const saveTask = (title, date, time, description) => {
     console.log(title, date, time, description);
     addDoc(collection(db, "tasks"), {title, date, time, description});
 };
+
+//toma los datos desde firebase y los esporta como funcion (usado en index.js)
+export const getTasks = () => getDocs(collection(db, 'tasks') );
+//toma datos cuando hay nuevas tareas
+export const onGetTask = () => console.log('onGetTask')
+
+export{
+    onSnapshot,
+    collection,
+    db
+}
